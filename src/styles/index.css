@@ -24,6 +24,19 @@
   --accent-palette-violet: #7c3aed;
   --accent-palette-sky: #0284c7;
   --accent-palette-emerald: #059669;
+
+  /* Dashboard palette */
+  --ws-violet: #8f7fd9;
+  --ws-rose: #d47f8d;
+  --ws-amber: #d4a156;
+  --ws-teal: #5ea59a;
+  --ws-sky: #6d96d8;
+  --ws-green: #6fbd7f;
+  --ws-danger: #c86a63;
+  --ws-warm: #f0b265;
+  --ws-accent: #6aa892;
+  --ws-accent-strong: #7bc5a9;
+  --ws-muted: #9caaa5;
 }
 
 :root.dark {

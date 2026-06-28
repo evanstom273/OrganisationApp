@@ -1,4 +1,5 @@
 import {
+  Archive,
   FolderKanban,
   Home,
   Inbox,
@@ -15,5 +16,6 @@ export const navigationItems: NavigationItem[] = [
   { label: 'Projects', to: '/projects', icon: FolderKanban, match: 'prefix' },
   { label: 'Tags', to: '/tags', icon: Tags, match: 'exact' },
   { label: 'Search', to: '/search', icon: Search, match: 'exact' },
+  { label: 'Archive', to: '/archive', icon: Archive, match: 'exact' },
   { label: 'Settings', to: '/settings', icon: Settings, match: 'exact' },
 ]
