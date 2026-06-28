@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:
+    "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --app-background: #f7f3ec;
+  --accent: #d97706;
+  --accent-strong: #b45309;
+  --accent-soft: rgba(245, 158, 11, 0.18);
+  --accent-soft-dark: rgba(245, 158, 11, 0.18);
+
+  --accent-palette-amber: #d97706;
+  --accent-palette-coral: #ea6d67;
+  --accent-palette-rose: #e11d48;
+  --accent-palette-violet: #7c3aed;
+  --accent-palette-sky: #0284c7;
+  --accent-palette-emerald: #059669;
+}
+
+:root.dark {
+  --app-background: #18181b;
+}
+
+:root[data-accent='amber'] {
+  --accent: var(--accent-palette-amber);
+  --accent-strong: #b45309;
+  --accent-soft: rgba(245, 158, 11, 0.16);
+  --accent-soft-dark: rgba(245, 158, 11, 0.2);
+}
+
+:root[data-accent='coral'] {
+  --accent: var(--accent-palette-coral);
+  --accent-strong: #d4574f;
+  --accent-soft: rgba(234, 109, 103, 0.16);
+  --accent-soft-dark: rgba(234, 109, 103, 0.2);
+}
+
+:root[data-accent='rose'] {
+  --accent: var(--accent-palette-rose);
+  --accent-strong: #be123c;
+  --accent-soft: rgba(225, 29, 72, 0.14);
+  --accent-soft-dark: rgba(225, 29, 72, 0.18);
+}
+
+:root[data-accent='violet'] {
+  --accent: var(--accent-palette-violet);
+  --accent-strong: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.15);
+  --accent-soft-dark: rgba(124, 58, 237, 0.2);
+}
+
+:root[data-accent='sky'] {
+  --accent: var(--accent-palette-sky);
+  --accent-strong: #0369a1;
+  --accent-soft: rgba(2, 132, 199, 0.15);
+  --accent-soft-dark: rgba(2, 132, 199, 0.2);
+}
+
+:root[data-accent='emerald'] {
+  --accent: var(--accent-palette-emerald);
+  --accent-strong: #047857;
+  --accent-soft: rgba(5, 150, 105, 0.15);
+  --accent-soft-dark: rgba(5, 150, 105, 0.2);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.55), transparent 30%), var(--app-background);
+}
+
+:root.dark body {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 30%), var(--app-background);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(113, 113, 122, 0.45) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-zinc-200/70;
+  }
+
+  body {
+    @apply text-zinc-950 dark:text-zinc-50;
+  }
+}
+
+@layer components {
+  :root[data-compact='true'] .compact-spacing {
+    @apply gap-3;
+  }
+
+  :root[data-compact='true'] .compact-padding {
+    @apply px-3 py-3;
+  }
+
+  :root[data-motion='reduced'] * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
