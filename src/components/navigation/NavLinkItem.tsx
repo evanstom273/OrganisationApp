@@ -20,15 +20,29 @@ export function NavLinkItem({ item, onNavigate }: NavLinkItemProps) {
       to={item.to}
       onClick={onNavigate}
       className={cn(
-        'group compact-padding flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/40',
+        'flex items-center gap-3 rounded-2xl border px-[14px] py-3 text-[0.93rem] font-medium transition-all duration-[220ms]',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ws-accent)]/40',
         isActive
-          ? 'bg-[color:var(--accent-soft)] text-[color:var(--accent-strong)] shadow-sm dark:bg-[color:var(--accent-soft-dark)] dark:text-white'
-          : 'text-zinc-600 hover:bg-zinc-950/[0.04] hover:text-zinc-950 dark:text-zinc-300 dark:hover:bg-white/[0.06] dark:hover:text-white',
+          ? [
+              'border-[rgba(121,195,168,0.2)] text-zinc-900',
+              'bg-gradient-to-b from-[rgba(91,161,136,0.14)] to-[rgba(35,67,58,0.14)]',
+              'shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_20px_rgba(14,29,25,0.12)]',
+              'dark:text-zinc-100 dark:from-[rgba(91,161,136,0.2)] dark:to-[rgba(35,67,58,0.2)]',
+            ]
+          : [
+              'border-transparent text-zinc-500',
+              'hover:translate-x-[2px] hover:bg-zinc-950/[0.03] hover:text-zinc-800',
+              'dark:text-[var(--ws-muted)] dark:hover:bg-white/[0.03] dark:hover:text-zinc-100',
+            ],
       )}
     >
-      <Icon className={cn('h-4 w-4', isActive && 'text-[color:var(--accent-strong)] dark:text-[color:var(--accent)]')} />
-      <span>{item.label}</span>
+      <Icon className="h-[19px] w-[19px] shrink-0" strokeWidth={1.9} />
+      <span className="flex-1">{item.label}</span>
+      {item.badge != null && (
+        <span className="inline-grid min-w-[22px] h-[22px] place-items-center rounded-full border border-[rgba(255,129,126,0.22)] bg-[rgba(201,83,86,0.18)] px-1.5 text-[0.74rem] font-bold text-[#ff9e9f]">
+          {item.badge}
+        </span>
+      )}
     </NavLink>
   )
 }
