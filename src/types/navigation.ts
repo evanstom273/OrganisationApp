@@ -5,4 +5,5 @@ export interface NavigationItem {
   to: string
   icon: LucideIcon
   match?: 'exact' | 'prefix'
+  badge?: number
 }
